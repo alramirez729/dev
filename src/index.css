@@ -1,0 +1,33 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f0f0f;
+  --fg: #e8e8e8;
+  --accent: #7fba00;
+  --muted: #666;
+  --card-bg: #1a1a1a;
+  --max-w: 720px;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+body {
+  min-height: 100dvh;
+  padding: 2rem 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
