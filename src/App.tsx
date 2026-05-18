@@ -1,6 +1,7 @@
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { theme } from './theme'
 import Navbar from './components/Navbar'
+import MusicPlayer from './components/MusicPlayer'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Links from './components/Links'
@@ -12,6 +13,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Navbar />
+      <MusicPlayer />
       <main className={styles.main}>
         <section id="about"    className={styles.section}><Hero /></section>
         <section id="projects" className={styles.section}><Projects /></section>
