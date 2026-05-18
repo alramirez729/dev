@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm pkg *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/@mui/material/package.json'\\).version\\)\")",
+      "Bash(node -e \"const mui = require\\('./node_modules/@mui/material'\\); console.log\\(Object.keys\\(mui\\).filter\\(k => ['Grid','Grid2','Drawer','AppBar','Card','Button','TextField','Chip','Stack','Box','Typography','List','ListItemButton','ListItemText','Toolbar','ThemeProvider','CssBaseline'].includes\\(k\\)\\).join\\(', '\\)\\)\")",
+      "Bash(node -e \"const {createTheme, useTheme, useMediaQuery} = require\\('./node_modules/@mui/material'\\); console.log\\(typeof createTheme, typeof useTheme, typeof useMediaQuery\\)\")"
+    ]
+  }
+}

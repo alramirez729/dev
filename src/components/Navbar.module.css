@@ -1,0 +1,61 @@
+.nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.75rem;
+  z-index: 100;
+}
+
+.toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+  line-height: 1;
+}
+
+.toggle:hover {
+  color: var(--fg);
+}
+
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.menu {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0.4rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  min-width: 110px;
+  animation: menuIn 0.14s ease;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  padding: 0.38rem 0.65rem;
+  border-radius: 3px;
+  transition: color 0.12s, background 0.12s;
+  letter-spacing: 0.01em;
+}
+
+.item:hover {
+  color: var(--fg);
+  background: rgba(237, 232, 220, 0.05);
+}
