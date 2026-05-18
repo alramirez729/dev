@@ -139,7 +139,7 @@ export default function Game() {
   const target = words.find(w => w.text.startsWith(input))
 
   return (
-    <Box component="section" sx={{ maxWidth: 720, mx: 'auto' }}>
+    <Box>
       {/* Header */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', mb: 1 }}>
         <Typography variant="overline" sx={{ color: 'text.secondary' }}>

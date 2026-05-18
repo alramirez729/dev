@@ -1,37 +1,23 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ThemeProvider, CssBaseline, Box } from '@mui/material'
+import { ThemeProvider, CssBaseline } from '@mui/material'
 import { theme } from './theme'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Links from './components/Links'
 import Game from './components/Game'
-
-export const DRAWER_WIDTH = 200
+import styles from './App.module.css'
 
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
-        <Navbar />
-        <Box
-          component="main"
-          sx={{
-            ml: { xs: 0, sm: `${DRAWER_WIDTH}px` },
-            px: { xs: '1.25rem', sm: '3rem' },
-            pt: { xs: 'calc(52px + 1.5rem)', sm: '3rem' },
-            pb: '4rem',
-          }}
-        >
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/links" element={<Links />} />
-            <Route path="/game" element={<Game />} />
-          </Routes>
-        </Box>
-      </BrowserRouter>
+      <Navbar />
+      <main className={styles.main}>
+        <section id="about"    className={styles.section}><Hero /></section>
+        <section id="projects" className={styles.section}><Projects /></section>
+        <section id="links"    className={styles.section}><Links /></section>
+        <section id="game"     className={styles.section}><Game /></section>
+      </main>
     </ThemeProvider>
   )
 }

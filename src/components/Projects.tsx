@@ -3,7 +3,7 @@ import { projects } from '../data/projects'
 
 export default function Projects() {
   return (
-    <Box component="section" sx={{ maxWidth: 840, mx: 'auto', mb: 8 }}>
+    <Box>
       <Typography
         variant="overline"
         sx={{ color: 'text.secondary', display: 'block', mb: 3 }}

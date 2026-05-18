@@ -1,13 +1,13 @@
 import { Box, Typography, Button, Stack, Divider } from '@mui/material'
 
 const links = [
-  { label: 'linkedin', href: 'https://linkedin.com/in/yourhandle', variant: 'outlined' as const },
+  { label: 'linkedin', href: 'https://linkedin.com/in/-alejandro-ramirez', variant: 'outlined' as const },
   { label: 'github', href: 'https://github.com/alramirez729', variant: 'outlined' as const },
 ]
 
 export default function Links() {
   return (
-    <Box component="section" sx={{ maxWidth: 840, mx: 'auto', mb: 8 }}>
+    <Box>
       <Typography variant="overline" sx={{ color: 'text.secondary', display: 'block', mb: 3 }}>
         let's connect
       </Typography>
@@ -20,7 +20,7 @@ export default function Links() {
           border: '1px solid',
           borderColor: 'divider',
           borderRadius: 3,
-          background: 'linear-gradient(145deg, #18181b 0%, #111113 100%)',
+          background: 'linear-gradient(145deg, #1c1814 0%, #141210 100%)',
           display: 'flex',
           alignItems: { xs: 'flex-start', sm: 'center' },
           justifyContent: 'space-between',

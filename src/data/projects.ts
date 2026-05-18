@@ -8,10 +8,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: 'Project One',
-    description: 'One-line description of what this does.',
-    tech: ['React', 'Node.js'],
-    url: 'https://example.com',
-    repo: 'https://github.com/alramirez729/project-one',
+    name: 'car vs car',
+    description: 'compare cars, get AI recommendations, have a mild argument with your friends about which one is objectively better',
+    tech: ['React', 'TypeScript', 'OpenAI', 'Vercel'],
+    url: 'https://car-vs-car-webapp.vercel.app/',
+    repo: 'https://github.com/alramirez729/CarVsCar',
+  },
+  {
+    name: 'MBTA live',
+    description: "real-time Boston transit tracker (for when the T is lying to you) currently NOT in service",
+    tech: ['React', 'Node.js', 'REST APIs'],
+    url: 'https://se24mbta-0tek.onrender.com/',
+  },
+  {
+    name: 'SSU Social',
+    description: 'social platform built on the MERN stack with S3 under the hood',
+    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'AWS S3'],
+    url: 'https://ssu-social-app.onrender.com/',
   },
 ]

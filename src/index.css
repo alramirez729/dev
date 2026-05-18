@@ -1,8 +1,10 @@
 /* CSS custom properties — consumed by Game.module.css */
 :root {
-  --bg: #09090b;
-  --fg: #fafafa;
-  --accent: #a78bfa;
-  --muted: #71717a;
+  --bg: #12100e;
+  --fg: #ede8dc;
+  --accent: #b8865a;
+  --muted: #8a7a6a;
+  --card-bg: #1c1814;
+  --border: #2e2720;
   --max-w: 840px;
 }

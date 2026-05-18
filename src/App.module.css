@@ -1,11 +1,20 @@
 .main {
-  /* offset for mobile top nav */
-  padding: calc(48px + 1.5rem) 1rem 3rem;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 6rem 1.25rem 6rem;
+}
+
+.section {
+  scroll-margin-top: 2rem;
+  margin-bottom: 7rem;
+}
+
+.section:last-child {
+  margin-bottom: 4rem;
 }
 
 @media (min-width: 640px) {
   .main {
-    margin-left: 160px;
-    padding: 0 2rem 3rem;
+    padding: 7rem 2.5rem 6rem;
   }
 }

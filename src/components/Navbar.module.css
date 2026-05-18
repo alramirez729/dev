@@ -1,77 +1,61 @@
-/* mobile: fixed top bar */
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 48px;
-  background: var(--bg);
-  border-bottom: 1px solid #1e1e1e;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-  gap: 1.5rem;
+  top: 1.5rem;
+  left: 1.75rem;
   z-index: 100;
 }
 
-.logo {
-  font-size: 0.8rem;
-  font-weight: 700;
+.toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
   color: var(--accent);
-  letter-spacing: 0.1em;
-  margin-right: auto;
-}
-
-.list {
-  display: flex;
-  gap: 1.25rem;
-  list-style: none;
-}
-
-.link {
-  font-size: 0.8rem;
-  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
   transition: color 0.15s;
+  line-height: 1;
 }
 
-.link:hover {
-  color: var(--fg);
-  text-decoration: none;
-}
-
-.active {
+.toggle:hover {
   color: var(--fg);
 }
 
-/* desktop: fixed left sidebar */
-@media (min-width: 640px) {
-  .nav {
-    top: 0;
-    left: 0;
-    right: auto;
-    bottom: 0;
-    width: 160px;
-    height: 100dvh;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2.5rem 1.5rem;
-    border-bottom: none;
-    border-right: 1px solid #1e1e1e;
-    gap: 0;
-  }
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-  .logo {
-    margin-right: 0;
-    margin-bottom: 2.5rem;
-    font-size: 0.9rem;
-  }
+.menu {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0.4rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  min-width: 110px;
+  animation: menuIn 0.14s ease;
+}
 
-  .list {
-    flex-direction: column;
-    gap: 0.9rem;
-  }
+.item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  padding: 0.38rem 0.65rem;
+  border-radius: 3px;
+  transition: color 0.12s, background 0.12s;
+  letter-spacing: 0.01em;
+}
 
-  .link {
-    font-size: 0.85rem;
-  }
+.item:hover {
+  color: var(--fg);
+  background: rgba(237, 232, 220, 0.05);
 }

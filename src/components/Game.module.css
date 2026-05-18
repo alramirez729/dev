@@ -9,10 +9,10 @@
   height: 400px;
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid #1e1e24;
-  background-color: #050507;
+  border: 1px solid var(--border);
+  background-color: #0e0c0a;
   background-image:
-    radial-gradient(ellipse at 15% 40%, rgba(167, 139, 250, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 40%, rgba(184, 134, 90, 0.06) 0%, transparent 55%),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -36,11 +36,11 @@
 
 .targeted {
   color: #fff;
-  text-shadow: 0 0 12px rgba(167, 139, 250, 0.7);
+  text-shadow: 0 0 12px rgba(184, 134, 90, 0.7);
 }
 
 .typed {
-  color: #3f3f46;
+  color: #3a3028;
 }
 
 @keyframes burst {
@@ -67,6 +67,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  background: rgba(5, 5, 7, 0.9);
+  background: rgba(14, 12, 10, 0.9);
   backdrop-filter: blur(4px);
 }
