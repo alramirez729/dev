@@ -1,0 +1,11 @@
+.main {
+  /* offset for mobile top nav */
+  padding: calc(48px + 1.5rem) 1rem 3rem;
+}
+
+@media (min-width: 640px) {
+  .main {
+    margin-left: 160px;
+    padding: 0 2rem 3rem;
+  }
+}

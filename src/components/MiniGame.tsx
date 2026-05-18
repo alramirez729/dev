@@ -33,7 +33,7 @@ export default function MiniGame() {
   }
 
   return (
-    <section className={styles.section}>
+    <section id="game" className={styles.section}>
       <h2 className={styles.heading}>type fast</h2>
       {!active ? (
         <button className={styles.startBtn} onClick={start}>
