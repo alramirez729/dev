@@ -1,19 +1,41 @@
+import { Box, Typography, Card, CardActionArea, CardContent, Chip, Stack } from '@mui/material'
 import { projects } from '../data/projects'
-import styles from './Projects.module.css'
 
 export default function Projects() {
   return (
-    <section className={styles.section}>
-      <h2 className={styles.heading}>projects</h2>
-      <div className={styles.grid}>
-        {projects.map((p) => (
-          <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" className={styles.card}>
-            <span className={styles.cardName}>{p.name}</span>
-            <span className={styles.cardDesc}>{p.description}</span>
-            <span className={styles.cardTech}>{p.tech.join(' · ')}</span>
-          </a>
+    <Box component="section" sx={{ maxWidth: 720, mx: 'auto', mb: 6 }}>
+      <Typography
+        variant="overline"
+        sx={{ color: 'text.secondary', display: 'block', mb: 1.5, letterSpacing: '0.15em', fontSize: '0.8rem' }}
+      >
+        projects
+      </Typography>
+      <Stack spacing={1.5}>
+        {projects.map(p => (
+          <Card key={p.name} variant="outlined">
+            <CardActionArea
+              component="a"
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, py: 1.5, '&:last-child': { pb: 1.5 } }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  {p.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {p.description}
+                </Typography>
+                <Stack direction="row" spacing={0.5} sx={{ mt: 0.5, flexWrap: 'wrap' }}>
+                  {p.tech.map(t => (
+                    <Chip key={t} label={t} size="small" variant="outlined" color="primary" />
+                  ))}
+                </Stack>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         ))}
-      </div>
-    </section>
+      </Stack>
+    </Box>
   )
 }

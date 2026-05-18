@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { Box, Typography, Button, TextField } from '@mui/material'
 import styles from './Game.module.css'
 
 const WORD_POOL = [
@@ -47,8 +48,7 @@ export default function Game() {
   const spawnBurst = useCallback((x: number, y: number) => {
     const pixels: BurstPixel[] = Array.from({ length: 14 }, () => ({
       id: burstIdRef.current++,
-      x,
-      y,
+      x, y,
       dx: (Math.random() - 0.35) * 160,
       dy: (Math.random() - 0.5) * 100,
     }))
@@ -78,8 +78,7 @@ export default function Game() {
     const text = available[Math.floor(Math.random() * available.length)]
     setWords(prev => [...prev, {
       id: wordIdRef.current++,
-      text,
-      x: 103,
+      text, x: 103,
       y: 8 + Math.random() * 76,
       speed: getSpeed(scoreRef.current),
     }])
@@ -88,11 +87,9 @@ export default function Game() {
   useEffect(() => {
     if (phase !== 'playing') return
     tickRef.current = 0
-
     const interval = setInterval(() => {
       const tick = ++tickRef.current
       if (tick % getSpawnInterval(scoreRef.current) === 0) spawnWord()
-
       setWords(prev => {
         let lost = 0
         const next = prev.reduce<WordObj[]>((acc, w) => {
@@ -111,7 +108,6 @@ export default function Game() {
         return next
       })
     }, TICK_MS)
-
     return () => clearInterval(interval)
   }, [phase, spawnWord])
 
@@ -143,15 +139,22 @@ export default function Game() {
   const target = words.find(w => w.text.startsWith(input))
 
   return (
-    <section className={styles.section}>
-      <div className={styles.header}>
-        <span className={styles.title}>typer shark</span>
-        <span className={styles.meta}>
+    <Box component="section" sx={{ maxWidth: 720, mx: 'auto' }}>
+      {/* Header */}
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', mb: 0.75 }}>
+        <Typography
+          variant="overline"
+          sx={{ color: 'text.secondary', letterSpacing: '0.15em', fontSize: '0.8rem' }}
+        >
+          typer shark
+        </Typography>
+        <Typography variant="caption" sx={{ color: 'text.secondary', letterSpacing: '0.05em' }}>
           {Array.from({ length: LIVES }, (_, i) => i < lives ? '♥' : '♡').join('')}
           &nbsp;&nbsp;score: {score}&nbsp;&nbsp;best: {best}
-        </span>
-      </div>
+        </Typography>
+      </Box>
 
+      {/* Arena */}
       <div className={styles.arena}>
         {words.map(w => {
           const isTarget = w === target
@@ -177,36 +180,50 @@ export default function Game() {
         ))}
 
         {phase === 'idle' && (
-          <div className={styles.overlay}>
-            <p className={styles.overlayTitle}>typer shark</p>
-            <p className={styles.overlaySub}>type words before they reach you</p>
-            <button className={styles.btn} onClick={start}>start</button>
-            {best > 0 && <p className={styles.overlayMeta}>high score: {best}</p>}
-          </div>
+          <Box className={styles.overlay}>
+            <Typography variant="h6" sx={{ fontWeight: 700 }} gutterBottom>typer shark</Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+              type words before they reach you
+            </Typography>
+            <Button variant="outlined" color="primary" onClick={start}>start</Button>
+            {best > 0 && (
+              <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+                high score: {best}
+              </Typography>
+            )}
+          </Box>
         )}
 
         {phase === 'dead' && (
-          <div className={styles.overlay}>
-            <p className={styles.overlayTitle}>game over</p>
-            <p className={styles.overlaySub}>score: {score}</p>
-            {score >= best && score > 0 && <p className={styles.overlayNew}>new best!</p>}
-            <button className={styles.btn} onClick={start}>try again</button>
-          </div>
+          <Box className={styles.overlay}>
+            <Typography variant="h6" sx={{ fontWeight: 700 }} gutterBottom>game over</Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: score >= best && score > 0 ? 0.5 : 1.5 }}>
+              score: {score}
+            </Typography>
+            {score >= best && score > 0 && (
+              <Typography variant="caption" color="primary" sx={{ mb: 1.5 }}>new best!</Typography>
+            )}
+            <Button variant="outlined" color="primary" onClick={start}>try again</Button>
+          </Box>
         )}
       </div>
 
+      {/* Input */}
       {phase === 'playing' && (
-        <input
-          ref={inputRef}
-          className={styles.input}
+        <TextField
+          inputRef={inputRef}
+          variant="standard"
           value={input}
           onChange={handleInput}
           placeholder="type here..."
-          spellCheck={false}
           autoComplete="off"
           autoCapitalize="none"
+          spellCheck={false}
+          fullWidth
+          sx={{ mt: 1 }}
+          slotProps={{ htmlInput: { style: { fontFamily: "'Courier New', Courier, monospace" } } }}
         />
       )}
-    </section>
+    </Box>
   )
 }
