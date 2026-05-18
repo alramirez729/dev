@@ -3,6 +3,7 @@ import { Box, Typography, Button, TextField } from '@mui/material'
 import styles from './Game.module.css'
 
 const WORD_POOL = [
+  // Tech (keeping the classics)
   'react', 'vite', 'node', 'git', 'vim', 'bash', 'sudo', 'grep', 'curl',
   'html', 'css', 'api', 'sql', 'ssh', 'npm', 'yarn',
   'typescript', 'python', 'golang', 'rust', 'docker',
@@ -10,6 +11,27 @@ const WORD_POOL = [
   'proxy', 'token', 'hook', 'state', 'module', 'import',
   'export', 'function', 'const', 'array', 'object', 'string',
   'deploy', 'build', 'lint', 'test', 'debug', 'merge', 'branch',
+
+  // Music
+  'guitar', 'chord', 'riff', 'fret', 'capo', 'tempo', 'pitch', 'scale',
+  'melody', 'harmony', 'rhythm', 'bridge', 'verse', 'chorus', 'solo',
+  'vinyl', 'album', 'track', 'bass', 'treble', 'reverb', 'delay', 'gain',
+  'amp', 'pedal', 'tuner', 'strap', 'pick', 'string', 'whammy',
+
+  // Art & Design
+  'sketch', 'canvas', 'layer', 'palette', 'hue', 'contrast', 'shadow',
+  'texture', 'stroke', 'gradient', 'vector', 'pixel', 'frame', 'crop',
+  'render', 'glyph', 'serif', 'font', 'grid', 'margin', 'opacity',
+
+  // Gym & Lifting
+  'squat', 'deadlift', 'bench', 'curl', 'press', 'rep', 'set', 'grip',
+  'rack', 'barbell', 'dumbbell', 'plate', 'form', 'pump', 'gains',
+  'macro', 'protein', 'creatine', 'cardio', 'shred', 'bulk',
+
+  // General / Vibe words
+  'focus', 'grind', 'craft', 'flow', 'vibe', 'mode', 'loop', 'spark',
+  'signal', 'noise', 'static', 'wave', 'pulse', 'drive', 'core',
+  'stack', 'depth', 'sharp', 'clean', 'raw', 'bold', 'edge',
 ]
 
 type WordObj = { id: number; text: string; x: number; y: number; speed: number }
@@ -143,7 +165,7 @@ export default function Game() {
       {/* Header */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', mb: 1 }}>
         <Typography variant="overline" sx={{ color: 'text.secondary' }}>
-          typer shark
+          Word Attack
         </Typography>
         <Box sx={{ display: 'flex', gap: 2.5, alignItems: 'center' }}>
           <Typography variant="caption" sx={{ color: 'text.secondary', fontFamily: 'monospace', letterSpacing: '0.05em' }}>
@@ -186,7 +208,7 @@ export default function Game() {
         {phase === 'idle' && (
           <Box className={styles.overlay}>
             <Typography sx={{ fontWeight: 700, fontSize: '1.3rem', letterSpacing: '-0.02em' }}>
-              typer shark
+              Word Attack
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
               type words before they reach you

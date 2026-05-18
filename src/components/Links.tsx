@@ -37,7 +37,7 @@ export default function Links() {
         <Button
           variant="contained"
           size="large"
-          href="/resume.pdf"
+          href="/resume-1.pdf"
           target="_blank"
           rel="noopener noreferrer"
           component="a"
