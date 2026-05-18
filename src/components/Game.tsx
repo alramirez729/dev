@@ -141,17 +141,21 @@ export default function Game() {
   return (
     <Box component="section" sx={{ maxWidth: 720, mx: 'auto' }}>
       {/* Header */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', mb: 0.75 }}>
-        <Typography
-          variant="overline"
-          sx={{ color: 'text.secondary', letterSpacing: '0.15em', fontSize: '0.8rem' }}
-        >
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', mb: 1 }}>
+        <Typography variant="overline" sx={{ color: 'text.secondary' }}>
           typer shark
         </Typography>
-        <Typography variant="caption" sx={{ color: 'text.secondary', letterSpacing: '0.05em' }}>
-          {Array.from({ length: LIVES }, (_, i) => i < lives ? '♥' : '♡').join('')}
-          &nbsp;&nbsp;score: {score}&nbsp;&nbsp;best: {best}
-        </Typography>
+        <Box sx={{ display: 'flex', gap: 2.5, alignItems: 'center' }}>
+          <Typography variant="caption" sx={{ color: 'text.secondary', fontFamily: 'monospace', letterSpacing: '0.05em' }}>
+            {Array.from({ length: LIVES }, (_, i) => i < lives ? '♥' : '♡').join('')}
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+            score <strong style={{ color: '#fafafa' }}>{score}</strong>
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+            best <strong style={{ color: '#a78bfa' }}>{best}</strong>
+          </Typography>
+        </Box>
       </Box>
 
       {/* Arena */}
@@ -181,14 +185,18 @@ export default function Game() {
 
         {phase === 'idle' && (
           <Box className={styles.overlay}>
-            <Typography variant="h6" sx={{ fontWeight: 700 }} gutterBottom>typer shark</Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+            <Typography sx={{ fontWeight: 700, fontSize: '1.3rem', letterSpacing: '-0.02em' }}>
+              typer shark
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
               type words before they reach you
             </Typography>
-            <Button variant="outlined" color="primary" onClick={start}>start</Button>
+            <Button variant="contained" color="primary" onClick={start} sx={{ mt: 0.5 }}>
+              start
+            </Button>
             {best > 0 && (
-              <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
-                high score: {best}
+              <Typography variant="caption" color="text.secondary" sx={{ mt: 0.75 }}>
+                high score: <span style={{ color: '#a78bfa' }}>{best}</span>
               </Typography>
             )}
           </Box>
@@ -196,14 +204,18 @@ export default function Game() {
 
         {phase === 'dead' && (
           <Box className={styles.overlay}>
-            <Typography variant="h6" sx={{ fontWeight: 700 }} gutterBottom>game over</Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: score >= best && score > 0 ? 0.5 : 1.5 }}>
-              score: {score}
+            <Typography sx={{ fontWeight: 700, fontSize: '1.3rem', letterSpacing: '-0.02em' }}>
+              game over
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              score: <strong style={{ color: '#fafafa' }}>{score}</strong>
             </Typography>
             {score >= best && score > 0 && (
-              <Typography variant="caption" color="primary" sx={{ mb: 1.5 }}>new best!</Typography>
+              <Typography variant="caption" sx={{ color: 'primary.main' }}>new best!</Typography>
             )}
-            <Button variant="outlined" color="primary" onClick={start}>try again</Button>
+            <Button variant="contained" color="primary" onClick={start} sx={{ mt: 0.5 }}>
+              try again
+            </Button>
           </Box>
         )}
       </div>

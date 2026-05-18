@@ -1,10 +1,9 @@
 import {
   AppBar, Toolbar, Drawer, List, ListItemButton,
-  ListItemText, Typography,
+  ListItemText, Typography, Box,
 } from '@mui/material'
 import { NavLink } from 'react-router-dom'
-
-const DRAWER_WIDTH = 160
+import { DRAWER_WIDTH } from '../App'
 
 const nav = [
   { to: '/', label: 'about', end: true },
@@ -12,6 +11,25 @@ const nav = [
   { to: '/links', label: 'links' },
   { to: '/game', label: 'game' },
 ]
+
+function Logo() {
+  return (
+    <Typography
+      sx={{
+        fontWeight: 800,
+        fontSize: '1.1rem',
+        letterSpacing: '-0.03em',
+        background: 'linear-gradient(135deg, #fafafa 30%, #a78bfa 100%)',
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        userSelect: 'none',
+      }}
+    >
+      ar.
+    </Typography>
+  )
+}
 
 function NavItems({ dense = false }: { dense?: boolean }) {
   return (
@@ -25,9 +43,9 @@ function NavItems({ dense = false }: { dense?: boolean }) {
                 slotProps={{
                   primary: {
                     sx: {
-                      fontSize: dense ? '0.75rem' : '0.85rem',
+                      fontSize: dense ? '0.8rem' : '0.875rem',
+                      fontWeight: isActive ? 500 : 400,
                       color: isActive ? 'text.primary' : 'text.secondary',
-                      fontFamily: "'Courier New', Courier, monospace",
                     },
                   },
                 }}
@@ -43,20 +61,13 @@ function NavItems({ dense = false }: { dense?: boolean }) {
 export default function Navbar() {
   return (
     <>
-      {/* Mobile: fixed top bar */}
-      <AppBar
-        position="fixed"
-        elevation={0}
-        sx={{ display: { sm: 'none' } }}
-      >
-        <Toolbar variant="dense" sx={{ gap: 1 }}>
-          <Typography
-            variant="caption"
-            sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: '0.1em', mr: 'auto' }}
-          >
-            ar
-          </Typography>
-          <List disablePadding sx={{ display: 'flex', flexDirection: 'row' }}>
+      {/* Mobile: frosted top bar */}
+      <AppBar position="fixed" elevation={0} sx={{ display: { sm: 'none' } }}>
+        <Toolbar variant="dense" sx={{ gap: 0.5, minHeight: 52 }}>
+          <Box sx={{ mr: 'auto' }}>
+            <Logo />
+          </Box>
+          <List disablePadding sx={{ display: 'flex', flexDirection: 'row', gap: 0 }}>
             <NavItems dense />
           </List>
         </Toolbar>
@@ -69,19 +80,18 @@ export default function Navbar() {
           display: { xs: 'none', sm: 'block' },
           width: DRAWER_WIDTH,
           flexShrink: 0,
-          '& .MuiDrawer-paper': { width: DRAWER_WIDTH, pt: 3, px: 1.5, boxSizing: 'border-box' },
+          '& .MuiDrawer-paper': {
+            width: DRAWER_WIDTH,
+            pt: 4,
+            px: 2,
+            boxSizing: 'border-box',
+          },
         }}
       >
-        <Typography
-          variant="caption"
-          sx={{
-            color: 'primary.main', fontWeight: 700, letterSpacing: '0.1em',
-            display: 'block', mb: 3, px: 1,
-          }}
-        >
-          ar
-        </Typography>
-        <List disablePadding>
+        <Box sx={{ mb: 4, px: 1 }}>
+          <Logo />
+        </Box>
+        <List disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
           <NavItems />
         </List>
       </Drawer>

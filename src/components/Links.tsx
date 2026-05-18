@@ -1,45 +1,69 @@
-import { Box, Typography, Button, Stack } from '@mui/material'
+import { Box, Typography, Button, Stack, Divider } from '@mui/material'
+
+const links = [
+  { label: 'linkedin', href: 'https://linkedin.com/in/yourhandle', variant: 'outlined' as const },
+  { label: 'github', href: 'https://github.com/alramirez729', variant: 'outlined' as const },
+]
 
 export default function Links() {
   return (
-    <Box component="section" sx={{ maxWidth: 720, mx: 'auto', mb: 6 }}>
-      <Typography
-        variant="overline"
-        sx={{ color: 'text.secondary', display: 'block', mb: 1.5, letterSpacing: '0.15em', fontSize: '0.8rem' }}
-      >
-        find me
+    <Box component="section" sx={{ maxWidth: 840, mx: 'auto', mb: 8 }}>
+      <Typography variant="overline" sx={{ color: 'text.secondary', display: 'block', mb: 3 }}>
+        let's connect
       </Typography>
-      <Stack direction="row" spacing={1.5} sx={{ flexWrap: 'wrap' }}>
+
+      {/* Primary CTA */}
+      <Box
+        sx={{
+          p: 3,
+          mb: 3,
+          border: '1px solid',
+          borderColor: 'divider',
+          borderRadius: 3,
+          background: 'linear-gradient(145deg, #18181b 0%, #111113 100%)',
+          display: 'flex',
+          alignItems: { xs: 'flex-start', sm: 'center' },
+          justifyContent: 'space-between',
+          flexDirection: { xs: 'column', sm: 'row' },
+          gap: 2,
+        }}
+      >
+        <Box>
+          <Typography sx={{ fontWeight: 600, mb: 0.5 }}>Resume</Typography>
+          <Typography variant="body2" color="text.secondary">
+            Full work history, skills, and education.
+          </Typography>
+        </Box>
         <Button
-          variant="outlined"
-          color="primary"
+          variant="contained"
+          size="large"
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           component="a"
+          sx={{ flexShrink: 0 }}
         >
-          resume
+          view resume ↗
         </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          href="https://linkedin.com/in/yourhandle"
-          target="_blank"
-          rel="noopener noreferrer"
-          component="a"
-        >
-          linkedin
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          href="https://github.com/alramirez729"
-          target="_blank"
-          rel="noopener noreferrer"
-          component="a"
-        >
-          github
-        </Button>
+      </Box>
+
+      <Divider sx={{ mb: 3, borderColor: 'divider' }} />
+
+      {/* Secondary links */}
+      <Stack direction="row" sx={{ gap: 1.5, flexWrap: 'wrap' }}>
+        {links.map(({ label, href, variant }) => (
+          <Button
+            key={label}
+            variant={variant}
+            size="large"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            component="a"
+          >
+            {label} ↗
+          </Button>
+        ))}
       </Stack>
     </Box>
   )

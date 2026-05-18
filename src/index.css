@@ -1,8 +1,8 @@
 /* CSS custom properties — consumed by Game.module.css */
 :root {
-  --bg: #0f0f0f;
-  --fg: #e8e8e8;
-  --accent: #7fba00;
-  --muted: #666;
-  --max-w: 720px;
+  --bg: #09090b;
+  --fg: #fafafa;
+  --accent: #a78bfa;
+  --muted: #71717a;
+  --max-w: 840px;
 }

@@ -7,7 +7,7 @@ import Projects from './components/Projects'
 import Links from './components/Links'
 import Game from './components/Game'
 
-const DRAWER_WIDTH = 160
+export const DRAWER_WIDTH = 200
 
 export default function App() {
   return (
@@ -19,9 +19,9 @@ export default function App() {
           component="main"
           sx={{
             ml: { xs: 0, sm: `${DRAWER_WIDTH}px` },
-            px: { xs: '1rem', sm: '2.5rem' },
-            pt: { xs: 'calc(48px + 1.5rem)', sm: '2.5rem' },
-            pb: '3rem',
+            px: { xs: '1.25rem', sm: '3rem' },
+            pt: { xs: 'calc(52px + 1.5rem)', sm: '3rem' },
+            pb: '4rem',
           }}
         >
           <Routes>
