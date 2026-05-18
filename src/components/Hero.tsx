@@ -38,7 +38,7 @@ export default function Hero() {
             lineHeight: 1.65,
           }}
         >
-          software engineer — building things that work, tearing apart things that don't.
+          software engineer — building things that work... sometimes. Feel free to listen to music I made while you explore a personal collection of projects, blog posts, and more.
         </Typography>
         <Typography
           sx={{
