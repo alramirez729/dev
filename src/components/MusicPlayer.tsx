@@ -21,12 +21,14 @@ const playlist = [
     src:    '/music/real-eyes-realize.mp3',
     cover:  '/music/real-eyes-realize.jpg',
   },
+  /* removed for now
   {
     title:  'Follow',
     artist: 'Alejandro',
     src:    '/music/follow.mp3',
     cover:  '/music/follow.jpg',
   },
+  */
   {
     title:  'Thoughts of you',
     artist: 'Alejandro',
